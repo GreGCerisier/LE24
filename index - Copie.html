@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
+
+<title>Prensentation reveal.js</title>
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/mine.css">
+<link rel="stylesheet" href="css/theme/black_mine.css">
+
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+	    : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+		<section><h1>Journée DevOps</h1>
+			<h2>24/11/2021</h2>
+		</section>
+		
+		<section><h2>DevOps et nos clients</h2>
+		</section>
+		<section>
+			<section>	<h3>Parce que nos clients abordent souvent DevOps sous l'aspect outils</h3></section>
+			<section><img src="img/XebiaTable.PNG"/>		
+			</section>
+		</section>
+		<section>
+			<section><h3>Copient / Collent des organisation</h3></section>
+			<section><img src="img/Spotify Org.png"/></section>
+		</section>
+		<section>
+		Il me semblait 
+			<h3><span class="blue fragment"><b>IMPORTANT</b></span></h3> 
+			<span class="fragment"> de repréciser ce qu'est la démarche DevOps</span> 
+			<span class="fragment">Seulement besoin de rajouter la classe <b>fragment</b></h3>
+				</span>
+		</section>
+
+				<section>
+					<h3>Un peu de CSS</h3>
+					<ul>
+						<li class="red fragment ">Texte en bleu</li>
+						<li class="green fragment ">Texte en rouge</li>
+						<li class="blue fragment">Texte en vert</li>
+						<li class="important fragment ">Ou l'inverse ?</li>
+				</ul>
+			</section>
+				<section>
+					<h3>Un peu de code</h3> <pre><code data-trim data-noescape>
+						public class CelluleFactory {
+							private static CelluleFactory INSTANCE;
+							private Map &lt;String , ICellule&gt; mapCellule;
+							public static CelluleFactory getInstance() {
+								if (INSTANCE == null) {
+									INSTANCE = new CelluleFactory();
+								}
+								return INSTANCE;
+							}
+						}
+					</code></pre>
+
+					<p>Pensez à échapper les &lt; et &gt;, et plus globalement le
+						html et le css ;)</p>
+			</section>
+
+
+				<section data-markdown><textarea data-template>
+## Vous pouvez faire du markdown
+
+  On dirait pas comme ça, mais je vous assure que c'est du md
+	 						
+  - une liste en md
+	 						
+    * une sous liste
+	 						  
+    * blablabla
+	 						  
+  - On s'amuse ...
+	 						
+</textarea></section>
+
+				<section>
+					<h3>On peut faire aussi des tableaux</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Jeu</th>
+								<th>Prix</th>
+								<th>Notation</th>
+						</tr>
+					</thead>
+						<tbody>
+							<tr>
+								<td>King of tokyo</td>
+								<td>25€</td>
+								<td>Godzilla/20</td>
+						</tr>
+							<tr>
+								<td>Arkans</td>
+								<td>??</td>
+								<td>Trop long/20</td>
+						</tr>
+							<tr>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+				<section><h3>Et plein d'autres choses !!</h3>
+					<ul>
+						<li class="fragment">Mettre une images en fond</li>
+						<li class="fragment">Changer les transitions</li>
+						<li class="fragment">Lire une vidéo</li>
+						<li class="fragment">Mais bon souvent rester sobre c'est le
+							mieux</li>
+				</ul></section>
+		</section>
+
+
+			<section>
+				<section>
+					<h2>La mise en ligne sous gitlab</h2>
+			</section>
+
+				<section>
+					<h3>Step 1 : configurer sa présentation</h3>
+					<ol><li>Mettre la présentation dans un dossier public</li>
+						<li>A la racine du projet rajouter un fichier
+							.gitlab-ci.yml</li></ol>
+			</section>
+
+				<section>
+					<h3>.gitlab-ci.yml</h3> <pre><code data-trim data-noescape>
+pages:
+  stage: deploy
+  tags:
+  - shell
+  script:
+  - echo 'Deploy to Gitlab pages'
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+					</code></pre>
+			</section>
+
+				<section>
+					<h3>Step 2 : Se faire un repos sous gitlab</h3>
+
+			</section>
+
+				<section>
+					<h3>Step 3 : Commit</h3>
+			</section>
+
+				<section>
+					<h3>Step 4 : Done</h3>
+			</section>
+
+				<section>
+					<h2 class="red">C'est pas plus compliqué que ça :)</h2>
+			</section>
+		</section>
+		
+		<section>
+		<section>
+					<h2>La mise en ligne sous github</h2>
+			</section>
+		
+		<section>
+		<ol>
+			<li class="fragment"> Faire un repos sout github</li>
+			
+			<li class="fragment"> Commit la présentation sur une branche gh-pages</li>
+			
+			<li class="fragment"> Done </li> 
+			
+			<li class="fragment"> Presentation accessible depuis : yourname.github.io/repo-name </li> 
+		</ol>
+		
+		
+		</section>
+		
+		</section>
+
+			<section>
+				<section>
+					<h2>Pour aller plus loin</h2>
+			</section>
+
+				<section>
+					<ul>
+						<li><a href="https://github.com/hakimel/reveal.js">Github
+								du projet </a></li>
+						<li>Et regardez le fichier demo.html qui est 1000x plus
+							complet que ça</li>
+				</ul>
+			</section>
+
+		</section>
+
+	</div>
+</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+	    dependencies : [ {
+		src : 'plugin/markdown/marked.js'
+	    }, {
+		src : 'plugin/markdown/markdown.js'
+	    }, {
+		src : 'plugin/notes/notes.js',
+		async : true
+	    }, {
+		src : 'plugin/highlight/highlight.js',
+
+		callback : function() {
+		    hljs.initHighlightingOnLoad();
+		}
+	    } ],
+	async : true,
+	history: true,
+	mouseWheel: true,
+	slideNumber: true,
+	controls: false,
+	
+	});
+    </script>
+</body>
+</html>
